@@ -26,6 +26,34 @@ app.get('/',(req, res)=>{
 
 
 
+    app.get('/tasks',(req, res)=>{
+        todo1.find({}, (err, data)=>{
+if (err){
+    console.log("arror", err);
+
+}else{
+
+    res.json(data);
+}
+        });
+        });
+    
+app.post('/tasks',(req, res)=>{
+    todo1.create(req, res, (err, newtask)=>{
+        console.log(req.body)
+if (err){
+console.log("arror", err);
+
+}else{
+
+res.status(201).json(newtask)
+}
+    });
+    });
+    //'created new todo list successfully'
+
+
+
 app.listen(5000, ()=>{
     console.log('the server is working')
 })
