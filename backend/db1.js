@@ -5,6 +5,7 @@ const mongoURI='mongodb://localhost:27017/FIRSTDB'
 const db1=mongoose.connection;
 
 mongoose.connect(mongoURI);
+
 /*,{ useNEWUrIParser:true, useUnifieldTopolgy:true}, ()=>{
     console.log('DB is working')
 })*/

@@ -2,7 +2,7 @@ const {Schema, model }= require ('mongoose');
 
 const todoSchema= new Schema({
     title:String,
-    iscompleted:Boolean
+    isCompleted:Boolean
 })
 
 const Todo1=model('Todo', todoSchema )
