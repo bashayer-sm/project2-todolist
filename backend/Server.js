@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const db1=require('./db1')
 const todo1=require('./todo1')
@@ -8,6 +9,7 @@ console.log(todo1)
 
 //Middleware     (read what inside post or whatever)
 app.use(express.json())
+app.use(cors())
 
 const db_array=[
     {Fname:'sami', Lname:'saeed'},

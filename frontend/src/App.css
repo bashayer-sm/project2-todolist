@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+
+}
+#A{
+  text-align: center;
+  font-family:fantasy;
+   font-size: 40px;
+   color:deeppink;
+   background-color: lightblue;
+}
+.Todo{
+  border: rgb(169, 214, 169) solid 20px ;
+
+  
+}
+#p1{
+  text-decoration: line-through 1px;
+}
+.Add{
+  border: darkmagenta solid 3px;
+text-align: center;
+}
+#CH{
+  margin: 10px;
+  color: brown;
+  background-color: chartreuse;
+}
