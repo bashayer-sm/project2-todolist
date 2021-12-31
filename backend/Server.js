@@ -3,6 +3,8 @@ const cors = require('cors')
 const app = express()
 const db1=require('./db1')
 const todo1=require('./todo1')
+const userin =require('./userin')
+console.log(userin)
 console.log(todo1)
 
 //const user =require('./Models/the first table.js')
@@ -11,13 +13,13 @@ console.log(todo1)
 app.use(express.json())
 app.use(cors())
 
-const db_array=[
+/*const db_array=[
     {Fname:'sami', Lname:'saeed'},
     {Fname:'sara', Lname:'ali'},
     {Fname:'mozon', Lname:'saad'},
     // "Fname":"sultan","Lname":"deme"
 ]
-
+*/
 
 
 
@@ -122,6 +124,62 @@ app.put('/tasks/:id/:isCompleted',(req, res)=>{
     });
 });
 //.........................................................
+//................ تطبيقات الأسبوع الثامن...................
+
+app.post('/user/register',(req, res)=>{
+    userin.create(req.body, (err, newuser)=>{
+      //  console.log("25", req.body)
+if (err){
+console.log("arror", err);
+res.status(400).json({message:"this email is already taken"})
+}else{
+
+res.status(201).json(newuser)
+}
+    });
+    });
+
+//.........login............
+app.post('/user/login', (req, res)=>{
+    userin.find({ email: req.body.email }, (err,data)=>{
+if(err){
+console.log("error", err)
+}else if(data.length === 1){
+    if(req.body.passWord === data[0].passWord){
+        res.status(200).json({massege:"login successfully", userName:data[0].userName})
+    
+}else {
+    res.status(400).json("wrong password")}
+}else {
+    res.status(400).json("this email is not registed")
+}
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(5000, ()=>{
     console.log('the server is working')

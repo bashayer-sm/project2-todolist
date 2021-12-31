@@ -5,7 +5,7 @@ export default function Todo(props) {
     return (
         <div className='Todo'>
 <p id='p1'>TITLE: {title} </p>
-<input type="checkbox" defaultChecked={isCompleted} is='CH' onClick={()=>{
+<input className='"form-check-input"'  type="checkbox" defaultChecked={isCompleted} id='CH' onClick={()=>{
     props.updateTask(_id, !isCompleted)  }}/>
 <button onClick={()=>{
     props.deleteTask(_id) }}>X</button>
